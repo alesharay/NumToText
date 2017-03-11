@@ -31,13 +31,19 @@ int main()
 				length++;
 			}
 
-			int ending = length/3,
-				remainder = length % 3;
 
-			if((remainder == 0) && (ending >= 1))
-				ending--;
+			int ending,
+				places = length;
+			while(places > 0)
+			{
+				places -= 3;
+				ending++;
+			}
+
+
 
 			numToText += endings[ending];
+			ending--;
 		}
 	}
 
