@@ -1,0 +1,43 @@
+51,462,156
+
+- if you number is zero
+	- print out zero
+- otherwise
+	
+	while number is greater than 0
+	
+		- decide the "highest ending" I need.
+			- thousands millions, billion, trillions
+
+		   	- look at the hundreds place, how many hundreds are there (1-9)
+				- if the hundreds place is zero
+					- do nothing
+				- othewise
+					- add the hundreds place text + "hundred" to the text string
+					- subtract that many hundreds times that many endings from the total
+
+
+		  	 - look at the tens place, which then is it (20, 30, ect...)
+					-if the tens place is zero
+						- do nothing
+				- otherwise
+					- add the tens place text to the text string
+					- subtract that many tens * that many endings from the total
+
+   
+  	 		- look at the ones place, which one is it (1 - 9), or teens (11-19)
+				- if the ones place is 0
+					- jump to add ending
+				- if the ones place is greater than or equal 10
+					- add the teens * that many endings to the string
+					- subtract that many teens from the total
+					- jump to add ending
+				- otherwise
+					- add the ones to * that many endings to the string
+					- subtract that many ones from the total
+					- jump to add ending
+
+		- add the ending
+
+
+print out the string
