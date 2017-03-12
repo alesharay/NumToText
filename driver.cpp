@@ -13,22 +13,22 @@ const string ones[19] = {"zero", "one", "two", "three", "four", "five",
 			 endings[6] = {"", "hundred", "thousand", "million", "billion", "trillion"};
 	string numToText = "";
 
+int place(int, int);
+
 int main()
 {
 	srand(time(NULL));
 
-
-
-int hunPlace(int, int);
-
 //	int num = 0 + rand() % 999999999999;
-	int num = 4592;
+	int num = 4867268;
 	cout << num << endl;
 
 	if(num == 0)
 		cout << ones[0] << endl;
-	else{
-		while(num > 0){
+	else
+	{
+		while(num > 0)
+		{
 			int length = 0;
 			int temp = num;
 
@@ -37,34 +37,47 @@ int hunPlace(int, int);
 				temp /= 10;
 				length++;
 			}
+			cout << "length: " << length << endl;
 
-			int ending,
-				places = length;
-			while(places > 0)
+			if((length == 1) || ((length == 2) && (num < 20)))
 			{
-				places -= 3;
-				ending++;
+				ones:
+				numToText = numToText + ones[place(num, length)] + " ";
+				cout << numToText << endl;
+				num -= (place(num, length) * pow(10, length-1));
+			} else if((length == 2) && (num >= 20))
+			{
+				numToText = numToText + tens[place(num, length)] + " ";
+				cout << numToText << endl;
+				num -= (place(num, length) * pow(10, length-1));
+			} else
+			{
+				int ending = 0,
+					places = length;
+				while(places > 0)
+				{
+					places -= 3;
+					ending++;
+				}
+				cout << "ending: " << ending << endl;
+
+
+
+				numToText = numToText + endings[ending] + " ";
+				cout << numToText << endl;
+
+				num -= (place(num, length) * pow(10, length-1));
 			}
-
-
-
-
-			numToText += endings[ending];
-			ending--;
 		}
 	}
 
 	return 0;
 }
 
-int hunPlace(int number, int length)
+int place(int number, int length)
 {
-	int hundreds = number / pow(10, length-1);
-	cout << hundreds << endl;
 
-	numToText += ones[hundreds];
-	number -= (hundreds * pow(10, length-1));
+	int place = number / pow(10, length-1);
 
-	return number;
+	return place;
 }
-
