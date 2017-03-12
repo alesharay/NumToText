@@ -31,12 +31,11 @@ int main()
 				length++;
 			}
 
-
-			int ending,
-				places = length;
-			while(places > 0)
+			int ending;
+//				places = length;
+			while(length > 0)
 			{
-				places -= 3;
+				length -= 3;
 				ending++;
 			}
 
