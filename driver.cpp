@@ -1,6 +1,7 @@
 #include<iostream>
 #include<ctime>
 #include<cmath>
+#include<cstdlib>
 
 using namespace std;
 
